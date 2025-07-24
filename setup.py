@@ -86,12 +86,12 @@ def generate_ext():
         roi_align = CppExtension(name='roi_align_api',
                                  sources=['autocrop/model/roi_align/src/roi_align.cpp'],
                                  include_dirs=[current_dir, rod_src_path, roi_src_path]
-                                              + torch.utils.cpp_extension.include_paths(cuda=False)
+                                              + torch.utils.cpp_extension.include_paths()
                                  )
         rod_align = CppExtension(name='rod_align_api',
                                  sources=['autocrop/model/rod_align/src/rod_align.cpp'],
                                  include_dirs=[current_dir, rod_src_path, roi_src_path]
-                                              + torch.utils.cpp_extension.include_paths(cuda=False)
+                                              + torch.utils.cpp_extension.include_paths()
                                  )
 
     ext_m = [roi_align, rod_align]

@@ -22,7 +22,7 @@ if torch.cuda.is_available():
             CUDAExtension(
                 name='rod_align_api',
                 sources=['src/rod_align_cuda.cpp', 'src/rod_align_kernel.cu'],
-                include_dirs=[current_dir] + torch.utils.cpp_extension.include_paths(cuda=True)
+                include_dirs=[current_dir] + torch.utils.cpp_extension.include_paths()
             )
         ],
         cmdclass={
@@ -34,7 +34,7 @@ else:
         ext_modules=[
             CppExtension(name='rod_align_api',
                          sources=['src/rod_align.cpp'],
-                         include_dirs=[current_dir] + torch.utils.cpp_extension.include_paths(cuda=False)
+                         include_dirs=[current_dir] + torch.utils.cpp_extension.include_paths()
                          )
         ],
         cmdclass={

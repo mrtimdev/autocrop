@@ -31,7 +31,7 @@ else:
             CppExtension(
                 name='roi_align_api',
                 sources=['src/roi_align.cpp'],
-                include_dirs=[current_dir] + torch.utils.cpp_extension.include_paths(cuda=False)
+                include_dirs=[current_dir] + torch.utils.cpp_extension.include_paths()
             )
         ],
         cmdclass={
